@@ -14,12 +14,16 @@ const TryAgain = ({ words, characters, wpm }) => {
           <b>Words:</b> {words}
         </p>
         <p>
-          <b>Speed:</b> {wpm}wpm
+          <b>Speed:</b> {wpm} wpm
         </p>
       </div>
 
       <div>
-        <button className={classes["end-buttons, try-btn"]}>Re-try</button>
+        <button
+          className={`${classes["end-buttons"]} ${classes["start-again-btn"]}`}
+        >
+          Re-try
+        </button>
         <button
           onClick={() => {
             window.open(
@@ -29,7 +33,7 @@ const TryAgain = ({ words, characters, wpm }) => {
               "height=600"
             );
           }}
-          className={classes["end-buttons, share-btn"]}
+          className={`${classes["end-buttons"]} ${classes["share-btn"]}`}
         >
           Share
         </button>
@@ -42,7 +46,7 @@ const TryAgain = ({ words, characters, wpm }) => {
               "height=600"
             );
           }}
-          className={classes["end-buttons, tweet-btn"]}
+          className={`${classes["end-buttons"]} ${classes["tweet-btn"]}`}
         >
           Tweet
         </button>
