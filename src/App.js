@@ -10,7 +10,7 @@ const serviceUrl = "http://metaphorpsum.com/paragraphs/1/9";
 
 class App extends React.Component {
   state = {
-    selectedParagraph: "My name is Rupert",
+    selectedParagraph: "My name is Rupert!!",
     timeStarted: false,
     timeRemaining: TotalTime,
     word: 0,
@@ -36,6 +36,28 @@ class App extends React.Component {
     this.setState({ testInfo });
   }
 
+  startTimer = () => {
+    this.setState({ timeStarted: true });
+    const timer = setInterval(() => {
+      if (this.state.timeRemaining > 0) {
+        //Change the WPM
+        const timeSpent = TotalTime - this.state.timeRemaining;
+        const wpm =
+          timeSpent > 0 ? (this.state.word / timeSpent) * TotalTime : 0;
+        this.setState({
+          timeRemaining: this.state.timeRemaining - 1,
+          wpm: parseInt(wpm),
+        });
+      } else {
+        clearInterval(timer);
+      }
+    }, 1000);
+  };
+
+  handleUserInput = (inputvalue) => {
+    if (!this.state.timeStarted) this.startTimer();
+  };
+
   render() {
     return (
       <div className="app">
@@ -49,6 +71,7 @@ class App extends React.Component {
           timeRemaining={this.state.timeRemaining}
           timeStarted={this.state.timeStarted}
           testInfo={this.state.testInfo}
+          onInputChange={this.handleUserInput}
         />
         <Footer />
       </div>
