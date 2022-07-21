@@ -11,6 +11,7 @@ const ChallengeSection = ({
   timeStarted,
   testInfo,
   onInputChange,
+  startAgain,
 }) => {
   return (
     <div className={classes["challenge-section-container"]}>
@@ -26,6 +27,7 @@ const ChallengeSection = ({
         wpm={wpm}
         testInfo={testInfo}
         onInputChange={onInputChange}
+        startAgain={startAgain}
       />
       {/* the key of the props need not be the same name as the variables you can also change them to suit you. */}
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./TryAgain.module.css";
 
-const TryAgain = ({ words, characters, wpm }) => {
+const TryAgain = ({ words, characters, wpm, startAgain }) => {
   return (
     <div className={classes["try-again-container"]}>
       <h1>Test Results</h1>
@@ -20,6 +20,7 @@ const TryAgain = ({ words, characters, wpm }) => {
 
       <div>
         <button
+          onClick={() => startAgain()}
           className={`${classes["end-buttons"]} ${classes["start-again-btn"]}`}
         >
           Re-try

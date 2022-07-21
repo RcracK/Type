@@ -6,7 +6,7 @@ const TestLetter = ({ individualLetterInfo }) => {
 
   const statusClass = {
     correct: "test-letter-correct",
-    Incorrect: "test-letter-incorrect",
+    incorrect: "test-letter-incorrect",
     notAttempted: "test-letter-not-attempted",
   }[status];
 
